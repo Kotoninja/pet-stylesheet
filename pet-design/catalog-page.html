@@ -3,73 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Catalog</title>
-    <style>
-        .thing-title{
-            display: inline-block;
-
-        }
-
-    </style>
+    <link rel='stylesheet' href='./style.css'>
 </head>
 <body>
-<!--field for register/profile account-->
-<fieldset>
-    {% if request.user.is_authenticated %}
-    <a href=" {% url 'user:profile' %}"><b>{{ request.user.get_username }} </b></a><br>
-    <a href="{% url 'user:bookmark'%}"><b> Bookmarks</b></a>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">logout</button>
-    </form>
-    {% else %}
-    <p>Guest</p>
-    <a href="{% url 'login' %}"> Login</a>
-    {% endif %}
-</fieldset>
+<nav class='nav-navigation'>
+    <ul>
+        <li><a>Account</a></li>
+        <li><a>Bookmarks</a></li>
+    </ul>
+</nav>
+<main class='main-catalog'>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+    <div class='main-catalog-thing'>
+        <p>alo</p>
+    </div>
+</main>
 
-<!--field for search things-->
-<form action="" method="post">
-    {% csrf_token %}
-    <input type='text' name='search' placeholder="Write thing name">
-    <button type='submit' value="search">Search</button>
-</form>
-
-<!--field with things-->
-{% if things %}
-<fieldset id="catalog">
-    {% for thing in things%}
-    <fieldset class="thing-title">
-        {% if thing.thing_pictures_url %}
-        <img class='thing-title-image' src={{thing.thing_pictures_url.0}} width="215" height="286.66">
-        {% else %}
-        <img src="{{MEDIA_ROOT}}/media/{{ thing.thing_title_picture }}" alt=" {{thing.title}}" width="215"
-             height="286.66"/>
-        {% endif %}
-        <div>
-            <span>{{thing.thing_name}}</span>
-            <span>{{thing.thing_brand}}</span>
-            <span>{{thing.thing_feedbacks}}</span>
-            <span>{{thing.thing_review_ratings}}</span>
-            <span>{{thing.thing_total_price.0.3}}</span>
-        </div>
-
-        {%if thing in all_things%}
-        <form action="" method="post">
-            {% csrf_token %}
-            {% if request.user.is_authenticated %}
-            {% if thing.thing_id in list_bookmarks%}
-            <input type='hidden' name='remove_choice' value={{thing.thing_id}}>
-            <button type="submit"> Remove bookmark</button>
-            {%else%}
-            <input type='hidden' name='add_choice' value={{thing.thing_id}}>
-            <button type="submit"> Add bookmark</button>
-            {%endif%}
-            {% endif %}
-        </form>
-        {%endif%}
-    </fieldset>
-    {% endfor %}
-</fieldset>
-{% endif %}
+<footer>
+    <div class='nav-footer'>
+        <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </div>
+</footer>
 </body>
 </html>
