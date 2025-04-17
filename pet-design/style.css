@@ -1,9 +1,7 @@
 html{
-    background-color: #e5e5e5;
-    opacity: 1;
-    background: radial-gradient(circle, transparent 20%, #e5e5e5 20%, #e5e5e5 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5e5 20%, #e5e5e5 80%, transparent 80%, transparent) 37.5px 37.5px, linear-gradient(#c26dde 3px, transparent 3px) 0 -1.5px, linear-gradient(90deg, #c26dde 3px, #e5e5e5 3px) -1.5px 0;
-    background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;
+    background: white;
 }
+
 body{
     width: 80%;
     margin: 0 auto;
@@ -13,22 +11,33 @@ body{
 /*    width: 80%;*/
 /*    margin: 0 auto;*/
 /*}*/
+
 .nav-navigation{
     display: flex;
-    background-color:white;
+    background: white;
     padding: 1px;
+    border: solid;
     border-radius: 25px;
     margin: 0px 5px 25px 5px;
 }
 nav ul{
     display: flex;
 }
+
 nav li{
     display: flex;
     flex:1;
     margin: 0px 50px 0px 0px;
     text-align: center;
     font-size: 30px;
+    color: black;
+}
+nav li a{
+    text-decoration: none;
+}
+nav li a:hover{
+    color: blue;
+    text-decoration: underline dotted blue
 }
 
 main {
